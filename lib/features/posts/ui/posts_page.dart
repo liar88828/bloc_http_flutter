@@ -20,13 +20,20 @@ class _PostsPageState extends State<PostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          postsBloc.add(PostsAddEvent());
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: const Text('Posts Page'),
       ),
       body: BlocConsumer<PostsBloc, PostsState>(
         bloc: postsBloc,
-        listenWhen: (previous, current) => current is PostActionState,
-        buildWhen: (previous, current) => current is! PostActionState,
+        listenWhen: (previous, current) =>
+            current is PostsActionState || current is PostsAddSuccessState,
+        buildWhen: (previous, current) => current is! PostsActionState,
         listener: (context, state) => true,
         builder: (context, state) {
           switch (state.runtimeType) {

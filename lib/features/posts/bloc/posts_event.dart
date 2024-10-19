@@ -4,3 +4,5 @@ part of 'posts_bloc.dart';
 sealed class PostsEvent {}
 
 class PostsInitialFetchEvent extends PostsEvent {}
+
+class PostsAddEvent extends PostsEvent {}

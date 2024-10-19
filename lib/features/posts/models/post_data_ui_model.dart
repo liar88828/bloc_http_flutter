@@ -23,6 +23,24 @@ class PostDataUiModel {
     };
   }
 
+// Method to send data as a Map with String values
+  Map<String, String> sendData() {
+    return {
+      'userId': userId.toString(),
+      'id': id.toString(),
+      'title': title,
+      'body': body,
+    };
+  }
+  // Map<String, String> sendData(PostDataUiModel data) {
+  //   return {
+  //     'userId': data.userId.toString(),
+  //     'id': data.id.toString(),
+  //     'title': data.title,
+  //     'body': data.body,
+  //   };
+  // }
+
   factory PostDataUiModel.fromMap(Map<String, dynamic> map) {
     return PostDataUiModel(
       userId: map['userId'] as int,
