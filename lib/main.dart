@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:request_api/features/home/home_page.dart';
 import 'package:request_api/features/posts/ui/posts_page.dart';
 
 void main() {
